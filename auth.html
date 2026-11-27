@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in | HR Employee Manager Pro</title>
+  <link rel="stylesheet" href="auth.css">
+  <script src="auth-session.js" data-guard="guest"></script>
+</head>
+<body class="auth">
+  <div class="shell">
+
+    <!-- Brand side -->
+    <aside class="brand">
+      <p class="wordmark">Lawson Limited Company</p>
+
+      <div class="pitch">
+        <p class="pitch-title">Every employee record, in one place.</p>
+        <p class="pitch-text">Add, search and export staff details without leaving this page.</p>
+      </div>
+
+      <svg class="badge" viewBox="0 0 240 300" aria-hidden="true" focusable="false">
+        <g transform="rotate(9 120 160)">
+          <rect x="30" y="40" width="180" height="230" rx="16" fill="#1c6b40"/>
+        </g>
+        <g transform="rotate(-5 120 160)">
+          <rect x="28" y="34" width="184" height="238" rx="16" fill="#ffffff"/>
+          <rect x="100" y="46" width="40" height="9" rx="4.5" fill="#d9e2dc"/>
+          <clipPath id="avatar-clip"><circle cx="120" cy="110" r="36"/></clipPath>
+          <circle cx="120" cy="110" r="36" fill="#dcebe1"/>
+          <circle cx="120" cy="100" r="13" fill="#0b5d2a"/>
+          <ellipse cx="120" cy="148" rx="30" ry="24" fill="#0b5d2a" clip-path="url(#avatar-clip)"/>
+          <rect x="62" y="166" width="116" height="12" rx="6" fill="#1f2a37"/>
+          <rect x="82" y="188" width="76" height="8" rx="4" fill="#9fb5a8"/>
+          <rect x="48" y="216" width="64" height="18" rx="9" fill="#f2b441"/>
+          <g fill="#1f2a37">
+            <rect x="132" y="216" width="3" height="18"/>
+            <rect x="139" y="216" width="6" height="18"/>
+            <rect x="149" y="216" width="2" height="18"/>
+            <rect x="155" y="216" width="5" height="18"/>
+            <rect x="165" y="216" width="3" height="18"/>
+            <rect x="172" y="216" width="6" height="18"/>
+          </g>
+        </g>
+      </svg>
+    </aside>
+
+    <!-- Form side -->
+    <main class="panel">
+      <div class="card">
+
+        <div class="tabs" role="tablist" aria-label="Account">
+          <button type="button" role="tab" id="tab-signin" data-mode="signin"
+                  aria-controls="panel-signin" aria-selected="true">Sign in</button>
+          <button type="button" role="tab" id="tab-signup" data-mode="signup"
+                  aria-controls="panel-signup" aria-selected="false" tabindex="-1">Sign up</button>
+        </div>
+
+        <!-- Sign in -->
+        <div role="tabpanel" id="panel-signin" aria-labelledby="tab-signin">
+          <h1>Sign in</h1>
+          <p class="lede">Use the work email you signed up with.</p>
+
+          <form id="signin-form" novalidate data-busy="Signing in…">
+            <div class="field">
+              <label for="si-email">Email</label>
+              <input id="si-email" name="email" type="email" autocomplete="email"
+                     maxlength="254" required aria-describedby="si-email-err">
+              <p class="err" id="si-email-err" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="si-password">Password</label>
+              <div class="pw">
+                <input id="si-password" name="password" type="password" autocomplete="current-password"
+                       maxlength="128" required aria-describedby="si-password-err">
+                <button type="button" class="reveal" data-what="password"
+                        aria-controls="si-password" aria-label="Show password">Show</button>
+              </div>
+              <p class="err" id="si-password-err" hidden></p>
+            </div>
+
+            <p class="form-error" role="alert" hidden></p>
+            <button type="submit" class="submit">Sign in</button>
+          </form>
+
+          <p class="switch">No account yet? <button type="button" class="linklike" data-switch="signup">Sign up</button></p>
+        </div>
+
+        <!-- Sign up -->
+        <div role="tabpanel" id="panel-signup" aria-labelledby="tab-signup" hidden>
+          <h1>Sign up</h1>
+          <p class="lede">Create an account to manage employee records.</p>
+
+          <form id="signup-form" novalidate data-busy="Signing up…">
+            <div class="field">
+              <label for="su-name">Full name</label>
+              <input id="su-name" name="name" type="text" autocomplete="name"
+                     maxlength="80" required aria-describedby="su-name-err">
+              <p class="err" id="su-name-err" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="su-email">Work email</label>
+              <input id="su-email" name="email" type="email" autocomplete="email"
+                     maxlength="254" required aria-describedby="su-email-err">
+              <p class="err" id="su-email-err" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="su-password">Password</label>
+              <div class="pw">
+                <input id="su-password" name="password" type="password" autocomplete="new-password"
+                       maxlength="128" required aria-describedby="su-password-hint su-password-err">
+                <button type="button" class="reveal" data-what="password"
+                        aria-controls="su-password" aria-label="Show password">Show</button>
+              </div>
+              <p class="hint" id="su-password-hint">At least 8 characters.</p>
+              <p class="err" id="su-password-err" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="su-confirm">Confirm password</label>
+              <div class="pw">
+                <input id="su-confirm" name="confirm" type="password" autocomplete="new-password"
+                       maxlength="128" required aria-describedby="su-confirm-err">
+                <button type="button" class="reveal" data-what="password confirmation"
+                        aria-controls="su-confirm" aria-label="Show password confirmation">Show</button>
+              </div>
+              <p class="err" id="su-confirm-err" hidden></p>
+            </div>
+
+            <p class="form-error" role="alert" hidden></p>
+            <button type="submit" class="submit">Sign up</button>
+          </form>
+
+          <p class="switch">Already have an account? <button type="button" class="linklike" data-switch="signin">Sign in</button></p>
+        </div>
+
+        <p class="note">Accounts and employee records are saved in this browser only. Nothing is sent to a server.</p>
+        <noscript><p class="form-error">This page needs JavaScript to sign you in.</p></noscript>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>
